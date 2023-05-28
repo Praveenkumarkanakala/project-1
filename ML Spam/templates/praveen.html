@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spam Email Detection</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-image: url('https://www.shutterstock.com/image-photo/email-blurred-city-abstract-lights-260nw-1445689751.jpg');
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      h1 {
+        font-size: 5rem;
+        color: white;
+        text-shadow: 2px 2px #c62d2d;
+      }
+      p{
+        text-align: center;
+      }
+      .form-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .form-container textarea {
+        width: 100%;
+        height: 200px;
+        border-radius: 5px;
+        border: none;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+      }
+      .form-container input[type="submit"] {
+        display: block;
+        margin: 20px auto 0;
+        width: 200px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(225, 17, 17);
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      .form-container input[type="submit"]:hover {
+        background-color: #8b5e5e;
+      }
+      .result {
+        background-color: rgba(9, 250, 77, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      .result span {
+        font-weight: bold;
+        color: rgba(18, 255, 125, 0.578);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>MAIL CUSTOMER SEGMENTATION</h1>
+        
+      </div>
+      <div class="form-container">
+        <form action="/predict" method="POST">
+          <textarea
+            name="input_mail"
+            placeholder="Enter the spam email here..."
+            cols="30"
+            rows="10"
+          ></textarea>
+          <input type="submit" value="submit">
+        </form>
+      </div>
+      {% if email_type %}
+      <div class="result">
+        <p>The entered email is possibly <span>{{ email_type }}</span>.</p>
+      </div>
+      {% endif %}
+    </div>
+    <h1><p>{{k}}</p></h1>
+  </body>>
+</html>
